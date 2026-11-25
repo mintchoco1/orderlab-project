@@ -15,16 +15,19 @@ def test_subtotal_negative():
     with pytest.raises(ValueError):
         subtotal(-100, 2)
 
+
 # 가격, 개수는 정상. 할인율이 음수
 def test_discount_below_zero():
     with pytest.raises(ValueError):
-        final_total(10_000, 2, -1) 
-        
+        final_total(10_000, 2, -1)
+
+
 # 가격, 개수는 정상. 할인율이 100 초과
 def test_discount_over_100():
     with pytest.raises(ValueError, match="invalid discount"):
-        final_total(10_000, 2, 101) 
-        
+        final_total(10_000, 2, 101)
+
+
 @pytest.mark.parametrize(
     "price, qty, discount, expected",
     [
